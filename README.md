@@ -1,3 +1,5 @@
+https://orcid.org/my-orcid?orcid=0009-0004-1872-1153
+https://doi.org/10.5281/zenodo.22251852
 # GRK-Conveyor | Конвейер GRK
 
 **Mathematical Core for Robotics | Математическое ядро для робототехники**
