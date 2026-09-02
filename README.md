@@ -1,34 +1,79 @@
-# GRK-Conveyor (Generative-Robotic Conveyor) & GRA Architecture
+# GRK-Conveyor | Конвейер GRK
 
-**Статус:** Теоретическая архитектура / Поиск соавторов для реализации PoC (Proof of Concept).
+**Mathematical Core for Robotics | Математическое ядро для робототехники**
 
-Современная гуманоидная робототехника находится в кризисе. Мы создали машины с невероятной кинематикой, но они падают и ломаются в реальном мире. Причина: разрыв между когнитивным ИИ (AGI) и физическим телом. 
+[![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b.svg)](https://arxiv.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**GRK-конвейер (Generative-Robotic Conveyor)** — это индустриализированный замкнутый цикл, объединяющий симуляции (in silico), унифицированные нейросети и данные о деградации реального железа. 
+---
 
-**GRA (Generative-Robotic Architecture)** — это математическое ядро, управляющее конвейером. Оно основано на принципе **обнуления противоречий** ($J \to 0$) и **максимизации научной новизны** ($N(O) \to \max$).
+## 🧠 Overview | Описание
 
-## Ключевая математическая модель
+**EN:**  
+GRK-Conveyor is a mathematical framework for embodied AI and robotics based on contradiction functional minimization ($J \to 0$) and novelty tracking ($N(O)$). It implements the GRA (Generative Robotic Architecture) core, enabling rapid meta-nullification under perturbations and stable sim-to-real transfer.
 
-В отличие от стандартного Reinforcement Learning, который просто максимизирует награду (reward), GRA-Core решает задачу одновременной стабилизации и поиска новых решений:
+**RU:**  
+GRK-Conveyor — это математический фреймворк для embodied AI и робототехники, основанный на минимизации функционала противоречий ($J \to 0$) и отслеживании новизны ($N(O)$). Он реализует ядро GRA (Generative Robotic Architecture), обеспечивая быстрое мета-обнуление при возмущениях и стабильный перенос sim-to-real.
 
-1. **Функционал противоречий (J):** Оценивает конфликт между ИИ-планированием и физическими ограничениями. Условие устойчивости: $\Phi = J = 0, \Delta\Phi = 0, \Delta^2\Phi > 0$.
-2. **Функционал научной новизны (N):** 
-   $$N(O) = \frac{d_{struct}(O, K)}{J_{AGI}(O) + \varepsilon}$$
-   где $d_{struct}$ — структурная удаленность от тривиальных решений, $J_{AGI}$ — уровень противоречия. 
+---
 
-Конвейер обеспечивает экспоненциальный рост новизны $N(O_n) \approx \gamma^n N(O_0)$ (где $\gamma = m \cdot k > 1$), минимизируя риск разрушения физического агента.
+## 📐 Key Concepts | Ключевые концепции
 
-## Архитектура конвейера (4 узла)
-1. **Движок синтеза данных:** Генерация физического контекста in silico.
-2. **Верификация In Silico:** Фильтрация политик управления до загрузки на реальное железо.
-3. **Унифицированная когнитивно-моторная модель:** Единая нейросеть для локомоции и манипуляции (отсутствие разрозненных контроллеров).
-4. **Physical Feedback Loop:** Сбор телеметрии об износе суставов и деградации в реальном мире для дообучения.
+| Concept | EN | RU |
+|--------|----|----|
+| **Contradiction Functional** | $J = \sum_i w_i \cdot C_i$, where $C_i$ are contradiction terms. Goal: $J \to 0$. | Функционал противоречий: $J = \sum_i w_i \cdot C_i$, где $C_i$ — члены противоречий. Цель: $J \to 0$. |
+| **Novelty Tracking** | $N(O)$ measures deviation from known operational manifold. | Отслеживание новизны: $N(O)$ измеряет отклонение от известного операционального многообразия. |
+| **Meta-Nullification** | Rapid reset of internal state when $J$ exceeds threshold. | Мета-обнуление: быстрый сброс внутреннего состояния при превышении порога $J$. |
+| **RAD-Revision** | Recursive Architecture Diagnosis for self-correction. | RAD-ревизия: рекурсивная диагностика архитектуры для самокоррекции. |
 
-## Репозиторий в поиске соавторов!
-Проект находится на стадии теоретического обоснования. Автор (Олег Бит) ищет ML-инженеров для реализации базового PoC в среде MuJoCo или NVIDIA Isaac Sim.
+---
 
-Связь: [oleg.bits.97@gmail.com]
+## 🚀 Getting Started | Начало работы
 
-## Лицензия
-MIT License (Свободное использование с указанием авторства).
+### Prerequisites | Требования
+
+- Python 3.9+
+- MuJoCo or Isaac Sim (for simulation)
+- LaTeX (for paper compilation)
+
+### Installation | Установка
+
+```bash
+git clone https://github.com/qqewq/GRK-Conveyor.git
+cd GRK-Conveyor
+pip install -r requirements.txt
+```
+
+### Running Simulations | Запуск симуляций
+
+```bash
+python simulations/run_gra.py --env mujoco --task ant_balance
+```
+
+---
+
+## 📄 Paper | Статья
+
+The core mathematical formulation is described in `paper.tex`. Compile with:
+
+```bash
+pdflatex paper.tex
+```
+
+**EN:** The paper includes problem statement, GRA architecture, formulas for $J$ and $N(O)$, and RAD-revision algorithm.  
+**RU:** Статья включает постановку задачи, архитектуру GRA, формулы для $J$ и $N(O)$, и алгоритм RAD-ревизии.
+
+---
+
+## 🤝 Contributing | Участие
+
+**EN:** We are looking for co-authors and ML engineers to implement simulations and publish at CoRL/ICRA.  
+**RU:** Мы ищем соавторов и ML-инженеров для реализации симуляций и публикации на CoRL/ICRA.
+
+Contact: [oleg.bits.97@gmail.com]
+
+---
+
+## 📜 License | Лицензия
+
+MIT License | Лицензия MIT
